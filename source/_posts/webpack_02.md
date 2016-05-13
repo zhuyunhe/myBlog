@@ -8,7 +8,7 @@ categories: 学习笔记
 ---
 # Webpack的用户交互接口
 ---
-####Webpack提供两种用户交互接口：webpack CLI和webpack-dev-server
+#### Webpack提供两种用户交互接口：webpack CLI和webpack-dev-server
 - 1.webpack CLI   
  webpack CLI是webpack提供的命令行接口，是默认的交互方式，安装Webpack时已经一起安装好了。这种方式可以从命令行或配置文件（默认配置文件是项目根目录下的webpack.config.js）获取参数，将获取到的参数传入Webpack打包。   
     方式一  
