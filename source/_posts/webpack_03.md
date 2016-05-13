@@ -21,14 +21,15 @@ categories : 学习笔记
 - entry : 数组类型  
 	如果你想添加多个彼此不互相依赖的文件，你可以使用数组格式的值。  
 	例如，你可能在html文件里引用了“googleAnalytics.js”文件，可以告诉Webpack将其加到bundle.js的最后。  
-
-	`{`  
+  
+	`{`    
 	`entry:['./src/index.js','./src/googleAnalytics.js']`  
 	`output:{`  
 		`path:'/dist',`  
 		`filename:'bundle.js'`  
 	`}`  
 	`}`
+
 
 - entry :对象  
 	现在，假设你的应用是多页面的(multi-page application)而不是SPA，有多个html文件（假设index.html和profile.html）。然后你通过一个对象告诉Webpack为每个html生成一个bundle文件。  
@@ -46,12 +47,15 @@ categories : 学习笔记
 		`}`  
 
 	用法  
+
 	`//profile.html`  
 	`<script src="/dist/profileEntry.js></script>"`  
 	`//index.html`  
 	`<script src="/dist/indexEntry.js></script>"`
+
 - entry : 混合类型
 	你也可以在entry对象里使用数组类型，例如下面的配置将会生成3个文件：vender.js、index.js、profile.js。  
+
 
 	`{`  
 		`entry:{`  
