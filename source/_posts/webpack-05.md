@@ -7,6 +7,11 @@ tags:
 categories : 学习笔记
 ---
 # webpack中的模块加载和链式模块加载
+
+先放出官网关于loader的介绍：  
+https://webpack.github.io/docs/loader-conventions.html  
+https://webpack.github.io/docs/list-of-loaders.html  
+
 模块加载器是可以自由添加的Node模块，用于将不同类型的文件“load”或“import”并转换成浏览器可以识别的类型，如js、stylesheet等。更高级的模块加载器现在也支持使用ES6中的“import”或“require”语法引入模块。  
 	
 	//webpack.config.js配置文件的module配置项
