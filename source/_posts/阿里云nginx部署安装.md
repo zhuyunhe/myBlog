@@ -4,7 +4,7 @@ date: 2016-05-21 14:32:02
 tags: 
 - 学习
 - Nginx
-categories:学习笔记
+categories: 学习笔记
 ---
 - 下载并解压Nginx
 我是先在自己的台式机上下载好Nginx安装包，然后通过WinSCP这个软件把安装包扔到阿里云的主机上并解压一下，过程如下图。  
