@@ -24,5 +24,5 @@ categories:学习笔记
 这只是很粗糙的安装部署，以后再进一步学习完善，以下是参考的几篇博客：  
 http://www.2cto.com/os/201201/117129.html  
 http://blog.csdn.net/feng88724/article/details/7255714  
-http://www.cnblogs.com/65702708/archive/2011/04/08/2009111.html
+http://www.cnblogs.com/65702708/archive/2011/04/08/2009111.html  
 
