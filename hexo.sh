@@ -1,2 +1,2 @@
 #!/usr/binenv bash
-hexo server
+hexo server -p 4000

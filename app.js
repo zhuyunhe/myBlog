@@ -1,1 +1,1 @@
-require('hexo').init({command:'server'});
+require('hexo-cli');
