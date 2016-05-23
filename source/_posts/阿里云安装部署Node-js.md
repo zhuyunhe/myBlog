@@ -10,9 +10,9 @@ categories: 学习笔记
 ![bad](/image/node/node.png)  
 
 - 首先去node.js的[官网下载页](https://nodejs.org/en/download/)下载压缩安装包。  
-![bad](/image/node/step1.png)  
+![step1](/image/node/step1.png)  
 - 然后利用xftp或WinSCP把文件复制到阿里云服务器上。  
-![bad](/image/node/step2.png)  
+![step2](/image/node/step2.png)  
 - 接下来就是在阿里云服务器上编译安装Node.js  
 		
 		//进入阿里云服务器时最好先升级一下系统
@@ -28,6 +28,6 @@ categories: 学习笔记
 		//安装
 		make install
 正常情况下，到此为止就安装成功了。  
-![done](/image/node/step3.png)  
+![step3](/image/node/step3.png)  
 
 参考：http://www.w3ctech.com/topic/1610
