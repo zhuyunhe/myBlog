@@ -6,9 +6,9 @@ tags:
 - 工作
 categories: demo
 ---
-#移动端做题的demo
-##结合移动端的触摸事件：touchstart、touchmove、touchend
-##动画和过度：CSS3中的transform和transition
+# 移动端做题的demo
+## 结合移动端的触摸事件：touchstart、touchmove、touchend
+## 动画和过度：CSS3中的transform和transition
 前段时间公司有个小任务，做一个网页版的做题界面，需要模仿原生客户的可以在题目间滑动切换的功能。我把工作中主要的页面抽取出来，做了个[demo](https://github.com/zhuyunhe/HJZ/tree/master/dati)分享一下。  
 原理其实很简单：可以参考下图  
 ![demo1](/image/dati/demo5.png)  
