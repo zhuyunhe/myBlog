@@ -7,7 +7,7 @@ tags:
 categories: 学习笔记
 ---
 # CSS Module--CSS模块化
-CSS全称是Cascading Style Sheet，层叠样式表。说起层叠，在CSS中我们会经常和两个东西打交道，一个是优先级(Priority)，还有一个就是继承(inheritance)。下面是一个简单的demo：  
+CSS全称是Cascading Style Sheet，层叠样式表(ps:如果要对css有更充分的了解，建议看一下黄玄大神的一篇[slide](http://huangxuan.me/2015/12/28/css-sucks-2015/))。说起层叠，在CSS中我们会经常和两个东西打交道，一个是优先级(Priority)，还有一个就是继承(inheritance)。下面是一个简单的demo：  
 ![demo](/image/css_module/demo.png)  
 了解css的同学应该都能看得明白，之所以在CSS中出现这样的问题，是因为本身CSS不是一门程序语言，所有的样式规则都位于同一个作用域下，无论你引入多少个css文件，以什么方式引入，所有的样式规则都位于同一个作用域。  
 ### 策略
