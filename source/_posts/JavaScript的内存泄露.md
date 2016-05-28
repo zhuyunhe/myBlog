@@ -25,5 +25,15 @@ JavaScript是一种垃圾回收语言。垃圾回收语言通过周期性地检�
 在内存泄露中提到的“不需要的引用”指的就是开发者明知这些内存引用不再需要，却由于某些原因，它仍被留在激活的root树中。在JavaScript中，不需要的引用是某些保留在代码中的变量，它们不再被需要，却指向了一块本该被释放的内存。有些人认为这是开发者的错误。  
 为了理解JavaScript中最常见的内存泄露，我们需要了解哪种方式的引用容易被遗忘。
 # 三种常见的JavaScript内存泄露
-JavaScript中对未定义变量的处理方式比较宽松：在非严格模式中，未定义的变量会在全局对象创建一个新变量，在浏览器中，全局对象是window。
-http://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651220885&idx=1&sn=0a313ecc854527dc5007acba5fde976c&scene=23&srcid=0527T5LD3Z5sN0TKLy5NGW3R#rd
+- 意外的全局变量  
+JavaScript中对未定义变量的处理方式比较宽松：在非严格模式中，未定义的变量会在全局对象创建一个新变量，在浏览器中，全局对象是window。  
+		
+		function foo(arg){
+			bar = 'this is a hidden global variable';
+		}
+真相是：  
+
+		function foo(arg){
+			window.bar = 'this is a hidden global variable';
+		}
+函数foo内部定义bar变量时忘记使用var，意外创建了一个全局变量。此例泄漏了一个简单的字符串，无伤大雅，但还有一种更糟糕的情况。
