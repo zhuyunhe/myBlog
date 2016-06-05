@@ -17,5 +17,9 @@
     "hexo-renderer-sass": "^0.2.0",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0"
+  },
+  "script": {
+    "commit": "sh commit.sh",
+    "pull": "sh pull.sh"
   }
 }
