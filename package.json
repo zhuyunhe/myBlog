@@ -20,6 +20,6 @@
   },
   "scripts": {
     "commit": "sh commit.sh",
-    "pull": "sh pull.sh"
+    "pull": "sh bin/ pull.sh"
   }
 }
