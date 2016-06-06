@@ -6,8 +6,8 @@
 title: 朱云鹤-blog
 subtitle: 酌贪泉而觉爽，处涸辙以犹欢。北海虽赊，扶摇可接；东隅已逝，桑榆非晚。
 description: my blog
-author: ZhuYunHe
-language: :zh-Hans
+author: 朱云鹤
+language: zh-Hans
 timezone:
 
 # URL
@@ -69,3 +69,5 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+avatar: /image/avatar.png

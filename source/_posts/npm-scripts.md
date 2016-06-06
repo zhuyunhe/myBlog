@@ -8,7 +8,7 @@ categories: 学习笔记
 
 ---
 ## npm执行脚本
-之前看到微信公众号一篇[文章](http://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651220932&idx=1&sn=49a0843b95545d453f500ed43159e785&scene=23&srcid=0606p8U0fFmRs5MHUGT3GE68#rd)，讲的是npm scripts，就想实践一下。  
+之前看到微信公众号一篇[文章](http://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651220932&idx=1&sn=49a0843b95545d453f500ed43159e785&scene=23&srcid=0606p8U0fFmRs5MHUGT3GE68#rd)，讲的是npm scripts，就想实践一下。<!-- more -->  
 ### part1
 npm不仅可以用于模块管理，还可以用于执行脚本。  
 package.json文件中有一个script字段，可以用于指定脚本命令，以供npm直接调用。
@@ -38,7 +38,7 @@ package.json文件中有一个script字段，可以用于指定脚本命令，�
 ![](/image/npm_script/2.png)  
 说是无法打开这个commit.sh文件，然后我瞅了一眼原来是这个文件我还木有x执行权限，坑爹啊，赶紧用chmod命令弄一下（Linux渣也是跪了），输入`chmod a+x commit.sh`，然后我们再回去运行`npm run commit`试试。然后，还是跪了，还是刚才那个错误，不是说放到`npm run commit`里就可以嘛，明天再好好看看npm的[官方文档](https://docs.npmjs.com/cli/run-script)吧，今晚先睡了。  
 
-###接着昨晚的节奏
+### 接着昨晚的节奏
 今天看了下官方文档，觉得昨天看那篇文章里有的地方描述的貌似不太合理，比如npm run命令的智能路径这块，官方文档是这么说的：  
 > In addition to the shell's pre-existing PATH, npm run adds node_modules/.bin to the PATH provided to scripts. Any binaries provided by locally-installed dependencies can be used without the node_modules/.bin prefix. For example, if there is a devDependency on tap in your package, you should write:  
 > "scripts": {"test":"tap test/\*.js"}
