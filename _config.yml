@@ -71,3 +71,10 @@ deploy:
   type:
 
 avatar: /image/avatar.png
+
+#comments
+duoshuo_shortname: zhuyunhe
+duoshuo_hotartical: true
+
+#share
+duoshuo_share: true
