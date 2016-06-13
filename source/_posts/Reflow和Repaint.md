@@ -41,11 +41,11 @@ Reflow的性能开销更加昂过，以下这些操作会触发浏览器Reflow�
 	element.width = '100px';
 	element.height = '200px';
 	element.style.margin = '10px';
+
 可以使用下面这种修改元素class属性的方法来优化上面的代码：
 
 	var element = document.getElementById('myElement');
 	element.classList.add('newstyle');
-	
 	css:
 	.newstyle{
 		width:100px;
@@ -59,8 +59,8 @@ Reflow的性能开销更加昂过，以下这些操作会触发浏览器Reflow�
 	var frag = document.createDocumentFragment();
 	var ul = frag.appendChild(document.createElement('ul'));
 	for(i=1; i<=3; i++){
-		li = ul.appendChild(document.createElement('li'));
-		li.textContent = 'item'+i;
+	li = ul.appendChild(document.createElement('li'));
+	li.textContent = 'item'+i;
 	}
 	document.body.appendChild(frag);
 ### 避免大量DOM互相影响
