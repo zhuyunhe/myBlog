@@ -75,6 +75,23 @@ categories: 学习笔记
 	`多数显示器默认频率是60HZ，即1秒刷新60次，所以理论上最小时间间隔为(1/60)*1000ms = 16.7ms`
 
 - display: inline-block
+	`移除元素标签间的空格、使用margin负值、使用font-size：0、letter-spacing、word-spacing`
 
+- ::before和:after中双冒号和单冒号有什么区别？解释一下这2个伪元素的作用。
+	`简而言之就是：单冒号（:）记法用于CSS3伪类，双冒号（::）记法用于CSS3伪元素`  
+	[W3C关于CSS3的伪类选择器](https://www.qianduan.net/before-and-before-the-difference-between/)有这样一段描述：
+	> Pseudo-elements create abstractions about the document tree beyond those specified by the document language. For instance, document languages do not offer mechanisms to access the first letter or first line of an element's content. Pseudo-elements allow designers to refer to this otherwise inaccessible information. Pseudo-elements may also provide designers a way to refer to content that does not exist in the source document (e.g., the ::before and ::after pseudo-elements give access to generated content).  
+	A pseudo-element is made of two colons (::) followed by the name of the pseudo-element.  
+	This :: notation is introduced by the current document in order to establish a discrimination between pseudo-classes and pseudo-elements. For compatibility with existing style sheets, user agents must also accept the previous one-colon notation for pseudo-elements introduced in CSS levels 1 and 2 (namely, :first-line, :first-letter, :before and :after). This compatibility is not allowed for the new pseudo-elements introduced in CSS level 3.
+	
+	大概翻译过来就是：伪元素会创建超出文档语言定义的关于文档树的抽象。例如，文档语言并不提供来访问一个元素内容的第一字母或第一行的机制。伪元素允许设计人员引用到这些本来难以接触的信息。伪元素有时也提供设计者一种方法去引用那些在源文档中并不存在的内容。（例如,::before和::after这两个伪元素能访问其生成的内容）  
+	伪元素由两个冒号::紧接伪元素名称构成。双冒号是在当前规范中引入中，用于区分伪类和伪元素。为了兼容现有的样式表（CSS1，CSS2），浏览器还需要支持旧的单冒号的伪元素写法，比如:first-line,:first-letter,:before和:after。不过，CSS3中新推出的伪元素不支持这种单冒号的兼容性写法。  
+	所以，对于CSS2之前的伪元素，比如:before,:after等，单冒号和双冒号的写法是一样的。  
+	如果你的网站只需要兼容webkit、firefox、opera等现代浏览器，建议对于伪元素采用双冒号的写法。对于IE的话，还是写单冒号安全一些。 
+
+- 什么是CSS预处理器/后处理器？
+	1. 预处理器：常见的预处理器有LESS、SASS、Stylus，用来预编译less或sass文件，增强css代码的复用性。  
+	预处理器都有层级、mixin、变量、循环、函数等功能，能够方便地进行UI组件模块化开发能力，极大提高工作效率。
+	2. 后处理器：PostCSS，通常被视为在完成的样式表中根据CSS规范处理CSS，让其更有效。目前最常做的是给CSS属性添加浏览器私有前缀，实现跨浏览器兼容性问题。
 
 [参考](https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers)
