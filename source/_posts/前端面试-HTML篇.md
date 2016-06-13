@@ -70,7 +70,7 @@ categories: 学习笔记
 	`如果要使用iframe，最好是通过JavaScript动态地给iframe添加src属性值。`  
 - label标签的作用是什么？怎么用？
 	`label标签用来定义表单控件间的关系，当用户选择该标签时，浏览器会自动将焦点转到和这个label标签相关的表单控件上。`  
-	'表单控件可以直接包含在label标签中，也可以用label标签的for属性来关联。'  
+	`表单控件可以直接包含在label标签中，也可以用label标签的for属性来关联。`  
 
 		<label>click me <input type="text"></label>  
 		<label for="username">click me</label>
