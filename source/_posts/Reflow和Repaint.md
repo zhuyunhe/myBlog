@@ -35,6 +35,7 @@ Reflow的性能开销更加昂过，以下这些操作会触发浏览器Reflow�
 ### 善用display:none
 `display:none`的元素不会引发Reflow和Repaint，可以在让这些元素在display之前进行一些诸如颜色、尺寸的改变。
 ### 批量更新元素 
+
 比如下面这个例子会触发三次reflow  
 	
 	var element = document.getElementById('myElement');
