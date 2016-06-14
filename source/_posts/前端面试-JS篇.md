@@ -203,5 +203,8 @@ categories: 学习笔记
 	2. apply()和call()很类似，都是在指定指定this值和参数的情况下调用某个函数。差别只是apply()方法的参数是以数组或类数组对象的形式存在。call()方法的参数是一个参数列表（逗号隔开）。  
 	实例：比如之前讲到的把函数的arguments类数组对象转成一个数组的方法：Array.prototype.slice.call(arguments)
 
-- 使用jQuery
+- 使用jQuery，找到id为“selector”的select标签中拥有'data-target'属性，且值为“isme”的option的值？
+	`$('select#selector>option[data-target="isme"]').val()`
+
+- 设计一个算法，合并两个有序数组为一个有序数组？
 	
