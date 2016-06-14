@@ -90,34 +90,34 @@ categories: 学习笔记
 			instance2.sayName();  //li  
 			instance2.sayAge();     //23
 
-	2.深拷贝继承
+	2. 深拷贝继承
 	参考阮一峰老师的一篇[博客](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)。 
-	
-		var Chinese = { nation: '中国'};
-		var Doctor = { career: '医生'};
 
-		//让“医生”继承“中国人”，变成一位中国医生。
-		//把父对象的属性全部拷贝给子对象，也能实现继承
-		//由于父对象的属性可能是数组或对象，所以需要用深拷贝
-		function deepCopy(p, c){
-			var c = c || {};
-			for(var i in p){
-				if(typeof p[i] === 'object'){
-					c[i] = (p[i].constructor === Array) ? [] : {};
-					deepCopy(p[i], c[i]);
-				} else{
-					c[i] = p[i];
+			var Chinese = { nation: '中国'};
+			var Doctor = { career: '医生'};
+	
+			//让“医生”继承“中国人”，变成一位中国医生。
+			//把父对象的属性全部拷贝给子对象，也能实现继承
+			//由于父对象的属性可能是数组或对象，所以需要用深拷贝
+			function deepCopy(p, c){
+				var c = c || {};
+				for(var i in p){
+					if(typeof p[i] === 'object'){
+						c[i] = (p[i].constructor === Array) ? [] : {};
+						deepCopy(p[i], c[i]);
+					} else{
+						c[i] = p[i];
+					}
 				}
+				return c;
 			}
-			return c;
-		}
-		
-		Chinese.place = ['北京','上海','广州'];
-		
-		//深拷贝
-		var Doctor = deepCopy(Chinese);
-		Doctor.place.push('大理');
-		console.log(Chinese.place);
-		console.log(Doctor.place);
+			
+			Chinese.place = ['北京','上海','广州'];
+			
+			//深拷贝
+			var Doctor = deepCopy(Chinese);
+			Doctor.place.push('大理');
+			console.log(Chinese.place);
+			console.log(Doctor.place);
 
 - 
