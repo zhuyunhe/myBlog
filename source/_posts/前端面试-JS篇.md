@@ -214,7 +214,7 @@ categories: 学习笔记
 		var result = [];
 		function mergeArray(a,b,result){
 			var i=0,j=0,index=0;
-			while(i<a.length & j<b.length){
+			while(i<a.length && j<b.length){
 				if(a[i] <= b[j]){
 					result[index++] = a[i++]; 
 				} else{
