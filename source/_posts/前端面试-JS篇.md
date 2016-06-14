@@ -200,6 +200,7 @@ categories: 学习笔记
 			//用bind方法解决这个问题
 			var boundGetX = retrieve.bind(module);
 			boundGetX();	//81
+
 	2. apply()和call()很类似，都是在指定指定this值和参数的情况下调用某个函数。差别只是apply()方法的参数是以数组或类数组对象的形式存在。call()方法的参数是一个参数列表（逗号隔开）。  
 	实例：比如之前讲到的把函数的arguments类数组对象转成一个数组的方法：Array.prototype.slice.call(arguments)
 
