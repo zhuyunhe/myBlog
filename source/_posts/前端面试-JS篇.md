@@ -183,7 +183,6 @@ categories: 学习笔记
 	1. bind()方法会创建一个新函数，当这个新函数被调用时，它的this值是传递给bind()的第一个参数，它的参数是bind()的其他参数和其原本参数。  
 	bind()最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的this值。JavaScript新手经常犯的一个错误就是将一个方法（假设方法中用到了this对象）从对象中拿出来，然后再调用，并且希望方法中的this是原来的对象。如果 不做特殊处理的话，一般会丢失原来的对象。用原来的函数和原来的对象创建一个绑定函数，可以漂亮地解决这个问题：
 			
-			
 			this.x = 9;
 			var module = {
 				x: 81,
@@ -200,7 +199,6 @@ categories: 学习笔记
 			//用bind方法解决这个问题
 			var boundGetX = retrieve.bind(module);
 			boundGetX();	//81
-
 
 	2. apply()和call()很类似，都是在指定指定this值和参数的情况下调用某个函数。差别只是apply()方法的参数是以数组或类数组对象的形式存在。call()方法的参数是一个参数列表（逗号隔开）。  
 	实例：比如之前讲到的把函数的arguments类数组对象转成一个数组的方法：Array.prototype.slice.call(arguments)
