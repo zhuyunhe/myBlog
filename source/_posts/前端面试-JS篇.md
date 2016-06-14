@@ -206,5 +206,27 @@ categories: 学习笔记
 - 使用jQuery，找到id为“selector”的select标签中拥有'data-target'属性，且值为“isme”的option的值？
 	`$('select#selector>option[data-target="isme"]').val()`
 
-- 设计一个算法，合并两个有序数组为一个有序数组？
+- 设计一个算法，合并两个有序数组为一个有序数组？  
+		`与归并排序类似`
+		
+		var a = [3,6,8,9,15];
+		var b = [1,2,5,7,12,16];
+		var result = [];
+		function mergeArray(a,b,result){
+			var i=0,j=0,index=0;
+			while(i<a.length & j<b.length){
+				if(a[i] <= b[j]){
+					result[index++] = a[i++]; 
+				} else{
+					result[index++] = b[j++];
+				}
+			}
+			
+			while(i<a.length){
+				result[index++] = a[i++];
+			}
+			while(j<b.length){
+				result[index++] = b[j++];
+			}
+		}
 	
