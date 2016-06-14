@@ -207,7 +207,7 @@ categories: 学习笔记
 	`$('select#selector>option[data-target="isme"]').val()`
 
 - 设计一个算法，合并两个有序数组为一个有序数组？  
-		`与归并排序类似`
+	`与归并排序类似`
 		
 		var a = [3,6,8,9,15];
 		var b = [1,2,5,7,12,16];
