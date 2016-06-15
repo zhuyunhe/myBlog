@@ -38,13 +38,14 @@ categories: 学习笔记
 	`#id .class div{} 权重为：111`   
 
 - CSS3有哪些新特性？  
-	1. 新增各种CSS选择器，例如`:not(.input)`选择所有class不是‘input’的元素  
-	2. 圆角，`border-radius:8px`  
-	3. 阴影和反射，Shadow\Reflect  
-	4. 文字特效，text-shadow
-	5. 文字渲染，text-decoration
-	6. 线性渐变，gradient
-	7. 动画：旋转、缩放、移动、倾斜等
+	1. 新增各种CSS选择器，例如，新的伪类：`:not(.input)`选择所有class不是‘input’的元素;子串匹配的属性选择器E[attribute^="value"]；伪元素使用两个冒号而不是一个来表示：:after变为::after等。 
+	2. 圆角，`border-radius:8px`，还有border-top-left-radius,border-top-right-radius,border-bottom-left-radius,border-bottom-right-radius。
+	3. 背景属性：background-origin，background-size，background-clip等 
+	4. 阴影和反射，Shadow\Reflect  
+	5. 文字特效，text-shadow
+	6. 文字渲染，text-decoration
+	7. 线性渐变，gradient
+	8. 动画：旋转、缩放、移动、倾斜等
 
 - 解释一下CSS3的Flexbox（弹性盒布局模型），以及适用场景？
 	`CSS3弹性盒布局模型，是一种当页面需要适应不同的屏幕大小以及设备类型时确保元素拥有恰当排布行为的布局方式。对很多应用程序来说，由于不使用浮动，且弹性容器的外边距也不会与其内容的外边距合并，弹性盒模型比方框模型要好用一些。使用flexbox，我们可以告别使用浮动的div元素、绝对定位和一些JavaScript hacks，仅仅几行CSS就可以构建水平或垂直方向的布局。`  
@@ -111,5 +112,52 @@ categories: 学习笔记
 		3. float的影响可控，absolute的影响不可控  
 		设置float和absolute属性的元素都脱离了文档流，因此它们都会影响到其下方的元素。但是，absolute是布局属性，使用时没有一种有效的方法使之与其下方的元素不重合在一起。相反，若一个元素指定了float属性，当我们向其下方（后后面）的元素应用了clear属性（clear:left,clear:right,clear:both）后，其后的元素就不再受影响了。
 
+- 如何实现一个左右固定宽度200px，中间自动占满剩余位置的三栏布局。
+	1. 传统圣杯布局  
+	首先把这三栏放置在一个容器中，然后把容器的左右内边距设为200px。  
+	把三栏都设为左浮动，中间栏的宽度设为100%，左右两栏的宽度设为200px，同时设左栏的margin-left:-200px，设右栏的margin-right:-200px。  
+	
+			<style>
+				section{
+					position: relative;
+					padding: 0 200px;
+					height: 200px;
+					background-color: black;
+				}
+				.left{
+					position: relative;
+					float: left;
+					width: 200px;
+					height: 200px;
+					background-color: red;
+					margin-left: -200px;
+				}
+				.right{
+					position: relative;
+					float: left;
+					width: 200px;
+					height: 200px;
+					background-color: yellow;
+					margin-right: -200px;
+				}
+				.center{
+					position: relative;
+					float: left;
+					width: 100%;
+					height: 200px;
+					background-color: green;
+				}
+			</style>
+			<body>
+				<section>
+					<div class="left">left</div>
+					<div class="center">center</div>
+					<div class="right">right</div>
+				</section>
+			</body>
+	2. flexbox弹性盒模型的圣杯布局  
+	使用弹性盒模型，我们可以避免使用浮动元素，弹性子元素可以在任何方向上排布，并且“弹性伸缩”其尺寸，既可以增加尺寸以填满未使用的空间，也可以收缩尺寸避免父元素溢出。  
+	代码就不贴了，我做了个[demo](http://zhuyunhe.com:8080/src/flexbox/home.html)可以F12看一下。
+	
 	
 [参考](https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers)
