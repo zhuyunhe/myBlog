@@ -230,3 +230,35 @@ categories: 学习笔记
 			}
 		}
 	
+- 介绍一下JS中的纯函数和非纯函数？  
+	纯函数是指不依赖和修改其作用域之外变量的函数。
+	[参考](http://mp.weixin.qq.com/s?__biz=MzA4NjE3MDg4OQ==&mid=2650963421&idx=1&sn=5ea0637e84b54166a93f9cda76fe3816&scene=23&srcid=0616Euwq4iGer5P5sgPSrNlp#rd)
+	纯函数的好处：
+	1. 方便测试（可测试性）
+	2. 自我注释（可读性）
+	3. 避免函数内的全局变量（可复用性）
+	
+	要在所有场景中都使用纯函数是不现实的，因为总有一些情况需要你跳出函数获取数据，最常见的救赎查询DOM以获取某个DOM元素。这是JavaScript的一个实际情况并且我们不得不这样做，但我们可以用纯函数来做一些优化。  
+	eg：从DOM中获取一个元素并将它背景设为红色  
+		
+		function changeElementToRed(){
+			var foo = document.getElementById('foo');
+			foo.style.backgroundColor = 'red';
+		}
+		changeElementToRed();
+		
+	这段代码有两个问题，都可以通过转变为纯函数来解决：
+	1. 这个函数完全不能被复用。它和特定的DOM元素紧密联系在一起。我们不能使用它修改其他元素。
+	2. 由于是非纯函数，它很难被测试。想要测试它，我们不得不创建带有特定ID的元素。  
+	
+	我们可以用纯函数的思想重写一下这个函数：  
+
+		function changeElementToRed(ele){
+			elem.style.backgroundColor = 'red';
+		}
+		function changeFooToRed(){
+			var foo = document.getElementById('foo');
+			changeElementToRed(foo);
+		}
+	我们修改changeElementToRed()函数使它不再与任何特定的元素关联。与此同时，我们把它变纯了，就这带来了我们之前讨论过的所有优点。  
+	需要注意的是，修改后的代码里还有非纯函数changeFooToRed()。这是不可避免的，但这里要说的是把一个函数改造成纯函数会增加它的可读性，可复用性以及可测试性。通过创建尽可能多的纯的、可复用的代码，并把不纯的代码限制在最低程度，我们可以编写出更好的代码并在未来避免更多烦恼。
