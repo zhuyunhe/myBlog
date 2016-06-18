@@ -263,7 +263,28 @@ categories: 学习笔记
 	我们修改changeElementToRed()函数使它不再与任何特定的元素关联。与此同时，我们把它变纯了，就这带来了我们之前讨论过的所有优点。  
 	需要注意的是，修改后的代码里还有非纯函数changeFooToRed()。这是不可避免的，但这里要说的是把一个函数改造成纯函数会增加它的可读性，可复用性以及可测试性。通过创建尽可能多的纯的、可复用的代码，并把不纯的代码限制在最低程度，我们可以编写出更好的代码并在未来避免更多烦恼。  
 	
-- endodeURI和encodeURIComponent的区别？
-	首先我们要知道如果要URL的参数中有特殊字符，需要对其进行转义，转义编码的格式为：%加字符的ASCII码，即一个百分号%，后面跟对应字符的ASCII码（16进制）码值，例如空格的编码值是"%20"。每一个非ASCII字符都会被替换为"%hh"格式，它对应于该字符按UTF-8编码后的编码值。
+- endodeURI和encodeURIComponent的区别？  
+	它们都是属于Global全局对象。用于对URI进行编码，以便发送给浏览器。    
+	首先我们要知道如果要URL的参数中有特殊字符，需要对其进行转义，转义编码的格式为：%加字符的ASCII码，即一个百分号%，后面跟对应字符的UTF-8码（16进制）码值，例如空格的编码值是"%20"。每一个非ASCII字符都会被替换为"%hh"格式，它对应于该字符按UTF-8编码后的编码值。
 	**encodeURI不会对ASCII字母、数字和ASCII标点符号（-_.!~*'()）以及在URI中具有特殊意义的符号（;/?:@&=+$,#）进行编码**。利用encodeURI这个函数对汉字进行编码时，比如“日”这个汉字出现在URL中，就会将它转义为“%E6%97%A5”，由于UTF-8是8位不定长的编码，一个中文字使用三个位元组(byte),按照UTF-8编码的“日”字的码值是“11100110 10010111 10100101”，对应的十六进制也就是"E6 97 A5"。  
 	**encodeURIComponent转义除了字母、数字、(、)、.、!、~、*、'、-和_之外的所有字符。**为了避免服务器收到不可预知的请求，对任何用户输入的作为URI部分的内容你都需要用encodeURIComponent进行转义。比如，一个用户可能会输入"Thyme &time=again"作为comment变量的一部分。如果不使用encodeURIComponent对此内容进行转义，服务器得到的将是comment=Thyme%20&time=again。请注意，"&"符号和"="符号产生了一个新的键值对，所以服务器得到两个键值对（一个键值对是comment=Thyme，另一个则是time=again），而不是一个键值对。
+
+- String类型的字符串有哪些常用方法？  
+	1. 字符方法：charAt()和charCodeAt()
+	2. 字符串操作方法：concat(), slice(), substring(), substr() 
+	3. 字符串位置方法：indexOf()和lastIndexOf()
+	4. trim()方法
+	5. 大小写转换方法：toLowerCase(), toLocaleLowerCase(), toUpperCase(), toLocaleUpperCase()
+	6. 模式匹配方法：match(), search(), replace()
+	7. 比较方法：localeCompare()
+	8. 转换方法：fromCharCode()
+
+- Array类型的数组对象有哪些常用方法？
+	1. 转换方法：toString(), valueOf(), toLocaleString(), join()
+	2. 栈方法（后进先出）：push()方法（返回修改后数组的长度）、pop()方法（返回移除的项）。
+	3. 队列方法（先进先出）：shift()移除数组中的第一项并返回、unshift()能在数组前端添加任一项并返回数组长度。
+	4. 重排序方法：reverse()、sort()
+	5. 操作方法：concat()、slice()、splice()
+	6. 位置方法：indexOf()、lastIndexOf()
+	7. 迭代方法：every(), some(), filter(), forEach(), map()
+	8. 归并方法：reduce()从第一项开始遍历, reduceRight()从最后一项开始遍历
