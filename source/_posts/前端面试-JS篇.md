@@ -287,4 +287,24 @@ categories: 学习笔记
 	5. 操作方法：concat()、slice()、splice()
 	6. 位置方法：indexOf()、lastIndexOf()
 	7. 迭代方法：every(), some(), filter(), forEach(), map()
-	8. 归并方法：reduce()从第一项开始遍历, reduceRight()从最后一项开始遍历
+	8. 归并方法：reduce()从第一项开始遍历, reduceRight()从最后一项开始遍历  
+
+
+- JSONP的原理？  
+	[参考](https://segmentfault.com/a/1190000002438126)  
+	JSONP是JSON with padding（填充式JSON或参数式JSON）的简写，是应用JSON的一种新方法。JSONP和JSON差不多，只不过是被包含在函数调用中的JSON，就像下面这样。  
+	`callback({"name": "Nicholas"})`这是从跨域服务器上返回的数据。  
+	JSONP由两部分组成：回调函数和数据。回调函数是当响应到来时应该在页面中调用的函数。回调函数的名字一般是在请求中指定的。而数据就是传入回调函数中的JSON数据。下面是一个典型的JSONP请求。  
+	`http://freegeoip.net/json/?callback=handleResponse`  
+
+	JSONP原理：
+	1. 首先在客户端注册一个callback，然后把callback的名字传给服务器。此时，服务器会先生成客户端想要的JSON格式的数据，然后以JavaScript语法的方式，生成一个函数（function），函数名就是JSONP请求中的callback参数的值，对应上例中就是handleResponse。
+	2. 服务器端接着把客户端想要的JSON数据以形参的方式放到function中，这样就生成了一段js代码，把这段代码返回给客户端。
+	3. 客户端浏览器解析script标签，并执行返回的js代码，也就是调用了客户端定义的回调函数。
+	总结：说白了就是客户端定义一个函数，如handleResponse，请求地址后服务器端返回的结果是调用了handleResponse，并且所要的数据都放在了handleResponse的参数里，以供客户端使用。  
+	注意：**JSONP是需要服务器端配置的**。
+
+- localStorage怎么设置过期时间？
+	localStorage是本地存储，没有过期一说，除非手动清除或者清除浏览器缓存，否则都会保留。
+	
+	
