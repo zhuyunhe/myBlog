@@ -308,3 +308,31 @@ categories: 学习笔记
 	localStorage是本地存储，没有过期一说，除非手动清除或者清除浏览器缓存，否则都会保留。
 	
 	
+- 用过ES5中哪些新特性？
+	ES5是ECMAScript的第五版，于2009年12月3日正式发布。ES5增加了一些新的功能，主要包括：原生JSON对象（用于解析和序列化JSON数据）、继承的方法和高级属性定义，另外还包括一张严格模式，对ECMAScript引擎解释和执行代码进行了补充说明。具体如下：
+	1. strict模式，'use strict'
+	2. Array新增的方法：  
+	迭代方法：every(), some(), filter(), forEach(), map()
+	归并方法：reduce(), reduceRight()  
+	3. Date新增的方法：  
+	Date.now(),返回表示调用这个方法时的日期和时间的毫秒数。
+	4. String新增的方法：  
+	trim()方法，创建一个字符串副本，删除前置及后缀的所有空格。
+	5. Function新增的方法：  
+	Function.prototype.bind(thisAttr,attr1,..),该方法创建一个新的函数，函数的this值会被绑定到传给bing()函数的第一个参数的值。
+	6. Object新增方法:  
+		- Object.getPrototypeOf(object)，返回指定对象的原型
+		- Object.create(proto, [propertiesObject])，创建一个拥有指定原型和若干指定属性的对象
+		- Object.getOwnPropertyNames(object)，返回一个由指定对象的所有自身属性的属性名组成的数组。
+		- Object.defineProperty(obj, prop, descriptor)，直接在一个对象上定义一个新属性，或者修改一个已经存在的属性，并返回这个对象。
+		- Object.getOwnPropertyDescriptor(obj, prop)，返回指定对象上一个自有属性对应的属性描述符。
+		- Object.defineProperties()，在一个对象上添加或修改多个自有属性，并返回该对象。
+		- Object.keys(obj)，返回一个由给定的对象的所有可枚举自身属性的属性名组成的数组。
+		- Object.preventExtensions(obj)，让一个对象变得不可扩展，不能再添加新的属性，但原有属性能被删除。
+		- Object.isExtensible(obj)，判断一个对象是否可扩展
+		- Object.seal()，让一个对象密封，并返回密封后的对象。密封对象是指那些不能添加新属性，不能删除已有属性以及不能修改已有属性的可写性（writable）、可配置性（configurable）、可枚举性(enumerable)，仅能修改其属性的值(value)得对象。
+		- Object.isSealed()，判断一个对象是否是密封的。
+		- Object.freeze(obj)，冻结一个对象。冻结对象是指那些不能添加新的属性，不能修改已有属性的值，不能删除已有属性，以及不能修改已有属性的可枚举性、可配置性、可写性的对象。也就是说，这个对象永远是不可变的。该方法返回被冻结的对象。
+		- Object.isFrozen()，判断一个对象是否冻结。
+	
+	
