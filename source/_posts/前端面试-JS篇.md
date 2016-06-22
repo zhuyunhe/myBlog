@@ -402,5 +402,33 @@ console.log('value is '+ (val === 'smtg')? 'Something' : 'Nothing');
 			}
 		})();
 	最后输出：'Goodbye Jack'
+
+- var s = String('a')和var t = new String('a')的区别？  
+	在JS中，String对象和原始字符串值之间是有区别的。（对于Boolean和Number来说也是一样的）。  
+	字符串字面量（以单引号或双引号表示）和不是以构造函数方式调用String函数（未使用new关键字）返回的字符串都是原始字符串。JavaScript会自动转换原始字符串为String对象，以便原始字符串可以使用String对象的方法。当一个原始字符串发生方法调用或属性查找时，JS会自动包裹这个原始字符串，然后进行方法调用和属性查找。  
+	
+		var s = String('a')；
+		var t = new String('a')；
+		typeof s; //'string'
+		typeof t; //'object'
+
+- Array.prototype?  
+	Array.prototype => []
+
+- '5'-3? '5'+3?  
+	'5'+3 => '53'，+号用来表示两个数的和或者拼接字符串，+号操作符两端如果有一个操作数是字符串，则把另一个操作数转换为字符串，然后再将两个字符串拼接起来。  
+	'5'-3 => 2，-号用来表示两个数的差；如果-号操作符两端的操作数是字符串、布尔值、null或undefined，则先在后台调用Number()函数将其转换为数组，然后再根据规则进行减法计算。如果转换的结果是NaN，则减法的结果就是NaN。Number(null)=>0,Number(undefined)=>NaN。
+
+- 1 < 2 < 3, 3 < 2 < 1？  
+	1 < 2 => true  
+	true < 3 => 1 < 3 => true  
+	3 < 2 => false  
+	false < 1 => 0 < 1 => true
+
+
+[参考：44个JS变态题](http://ourjs.com/detail/5761040488feaf2d031d2526)  
+[JS装逼指南](https://annatarhe.github.io/2016/04/19/hack-js-code.html?utm_source=ourjs.com)
+
+
 	
 	
