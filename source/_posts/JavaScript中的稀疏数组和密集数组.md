@@ -7,7 +7,7 @@ tags:
 categories: 学习笔记
 ---
 在JavaScript中，数组是一类特殊的对象，它表示一种数据集合，集合中的元素可以是任意类型的对象。既然数组也是对象，那么数组中的元素也是以属性的方式进行存储的（键值映射）。但由于JavaScript中数组中的属性的名称（键名）都是数字（从0开始），而一个合法的变量名不能以数字开头，所以我们必须使用方括号来获取数组中的这些属性，而不是使用点号(.)的方式。 
-可以看到，JavaScript中数组并不是其他语言中定义的常规数组，它只是一个对象，只不过会自动管理一下“数字”属性和length属性，其他语言中数组的索引应该是个数字，而JavaScript中数组的索引其实就是个字符串（属性名）。 
+可以看到，JavaScript中数组并不是其他语言中定义的常规数组，它只是一个对象，只不过会自动管理一些“数字”属性和length属性，其他语言中数组的索引应该是个数字，而JavaScript中数组的索引其实就是个字符串（属性名）。 
 ## 稀疏数组：数组中元素之间存在空隙。
 ## 密集数组：数组中元素之间不存在空隙。
 <!-- more -->
@@ -49,4 +49,5 @@ categories: 学习笔记
 	var a = Array.apply(null, Array(3)).map(function () { return 'a' })
 	//["a", "a", "a"]
 
-[参考](http://www.cnblogs.com/ziyunfei/archive/2012/09/16/2687165.html)
+[参考](http://www.cnblogs.com/ziyunfei/archive/2012/09/16/2687165.html)  
+[数组对象的map方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
