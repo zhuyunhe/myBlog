@@ -319,7 +319,7 @@ categories: 学习笔记
 	4. String新增的方法：  
 	trim()方法，创建一个字符串副本，删除前置及后缀的所有空格。
 	5. Function新增的方法：  
-	Function.prototype.bind(thisAttr,attr1,..),该方法创建一个新的函数，函数的this值会被绑定到传给bing()函数的第一个参数的值。
+	Function.prototype.bind(thisArg,attr1,..),该方法创建一个新的函数，函数的this值会被绑定到传给bing()函数的第一个参数的值。
 	6. Object新增方法:  
 		- Object.getPrototypeOf(object)，返回指定对象的原型
 		- Object.create(proto, [propertiesObject])，创建一个拥有指定原型和若干指定属性的对象
@@ -333,6 +333,74 @@ categories: 学习笔记
 		- Object.seal()，让一个对象密封，并返回密封后的对象。密封对象是指那些不能添加新属性，不能删除已有属性以及不能修改已有属性的可写性（writable）、可配置性（configurable）、可枚举性(enumerable)，仅能修改其属性的值(value)得对象。
 		- Object.isSealed()，判断一个对象是否是密封的。
 		- Object.freeze(obj)，冻结一个对象。冻结对象是指那些不能添加新的属性，不能修改已有属性的值，不能删除已有属性，以及不能修改已有属性的可枚举性、可配置性、可写性的对象。也就是说，这个对象永远是不可变的。该方法返回被冻结的对象。
-		- Object.isFrozen()，判断一个对象是否冻结。
+		- Object.isFrozen()，判断一个对象是否冻结。  
+
+- 如何鉴别对象中的某个属性是原型属性还是该对象的自有属性？
+	要点：
+	1. in操作符在给定对象中查找一个给定名称的属性，如果找到返回true；**in操作符会检查自有属性和原型属性**。  
+	2. 所有对象都有`hasOwnProperty()`方法，该方法在给定的属性存在且为自有属性时返回true。  
+	
+			//判断一个属性是否是原型属性的方法  
+			function hasPrototypeProperty(obj, name){
+				return (name in obj) && !(object.hasOwnProperty(name));
+			}
+
+- ["1", "2", "3"].map(parseInt)的输出是？  
+	**[1, Nan, NaN]**  
+	map方法在调用callback函数时，会给它传递三个参数，callbakc(item, index, array)，分别表示：当前正在遍历的元素， 元素索引，原数组本身。parseInt函数可以有两个有效参数（parseint.length===2）：第一个是要处理的对象，第二个是进制数。parseInt作为map的回调函数数，它会忽略map给它的第三个参数，但不会忽略第二个，也就是说`["1", "2", "3"].map(parseInt)`的执行过程是：  
+	1. parseInt('1',0) -> 1
+	2. parseInt('2',1) -> NaN
+	3. parseInt('3',2) -> NaN  
+	
+	如果要实现想要的效果：  
+		//returnInt只要一个有效参数
+		function returnInt(element){
+			return parseInt(element, 10);
+		}
+		['1', '2', '3'].map(returnInt);
+		//返回[1,2,3]
+
+- typeof null，null instanceof Object?  
+	typeof null === 'object'  
+	null instanceof Object -> flase  
+
+- [3,2,1].reduce(Math.pow)?  
+	arr.reduce(callback[,initialValue])
+	reduce函数接受两个参数，一个回调函数，一个初始值。
+	回调函数接受四个参数：previousValue, currentValue, currentIndex, array。第一次迭代发生在数组的第二项上，因此第一个参数是数组的第一项，第二个参数是数组的第二项。
+	题目中的表达式等于：
+	1. Math.pow(3,2)=>9
+	2. Math.pow(9,1)+>9
+
+- var val = 'smtg';  
+console.log('value is '+ (val === 'smtg')? 'Something' : 'Nothing');
+	因为'+'运算符的优先级大于'?'  
+	所以原题等价于'value is true' ? 'Something' ; 'Nothing'  
+	所以最后输出：'Something'
+
+- 下列程序输出什么？  
+
+	 	var name = 'world!';
+		(function(){
+			if(typeof name === 'undefined'){
+				var name = 'Jack';
+				console.log('Goodbye' + name);
+			} else{
+				console.log('Hello' + name);
+			}
+		})();
+	JavsScript中，函数和变量的声明会被提升（Hoist）。JavaScript会将JavaScript变量的声明移至作用域（全局域或当前函数作用域）的顶部。所以上述代码相当于：  
+
+		var name = 'world!';
+		(function(){
+			var name;
+			if(typeof name === 'undefined'){
+				var name = 'Jack';
+				console.log('Goodbye' + name);
+			} else{
+				console.log('Hello' + name);
+			}
+		})();
+	最后输出：'Goodbye Jack'
 	
 	
