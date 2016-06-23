@@ -425,8 +425,27 @@ console.log('value is '+ (val === 'smtg')? 'Something' : 'Nothing');
 	3 < 2 => false  
 	false < 1 => 0 < 1 => true
 
+-   var a = {}, b = Object.prototype;  
+	求[a.prototype === b, Object.getPrototypeOf(a) === b]  
+	答：只有函数对象才有prototype属性，即如果:  
+	`var foo = function(){};`  
+	foo.prototype属性为Object()  
+	a.prototype为undefined。  
+	而Object.getPrototypeOf(a)会返回a这个对象的原型（该对象内部的[[prototype]]值）  
+	所以改题答案为[false, true]  
+	但这里要注意一下：Object.getPrototypeOf(foo)的值是`function(){}`
 
-[参考：44个JS变态题](http://ourjs.com/detail/5761040488feaf2d031d2526)  
+- function foo(){}  
+	var oldName = foo.name;  
+	foo.name = 'bar';  
+	求[oldName, foo.name]  
+	答：function.name属性返回这个函数的名称，这个属性是不可变的。  
+	所以答案是:['foo', 'foo']
+
+
+ 
+--- 
+[参考：44个JS变态题](https://github.com/xiaoyu2er/blog/issues/1?utm_source=ourjs.com)  
 [JS装逼指南](https://annatarhe.github.io/2016/04/19/hack-js-code.html?utm_source=ourjs.com)
 
 
