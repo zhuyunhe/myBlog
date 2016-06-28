@@ -22,3 +22,5 @@ Source Map是一个信息文件，里面存储着位置信息。这里的`map`�
 我在Gulpdemo中试用了一下SourceMap，效果如下：  
 ![demo](/image/sourcemap/2.png)  
 `main-3795f5a805.min.js`是生产环境中压缩过的js文件，它的源文件是`index2.12.js`，chrome启用SourceMap后，开发者工具的左边文件树中多了一个橘黄色的source文件夹，里面就是开发时源代码，我们调试时还可以像以前一样设置断点什么的。但不知道为啥我的中文注释是乱码啊，谁能告诉我怎么办。还有为啥我在源代码里设置断点不管用啊。
+
+参考：[sourceMap初探](http://tangguangyao.github.io/2015/11/28/sourceMap%E5%88%9D%E6%8E%A2%E7%B4%A2/)
