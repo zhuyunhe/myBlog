@@ -5,27 +5,35 @@ tags:
 - JavaScript
 - 学习
 categories: 学习笔记
-
 ---
-Promise对象是CommonJS工作组提出的一种规范，目的是为异步编程提供统一接口。在ES6中，Promise对象用于异步(asynchronous)计算。一个Promise对象代表着一个还未完成，但预期将会完成的操作。  
+Promise对象是CommonJS工作组提出的一种规范，目的是为异步编程提供统一接口。在ES6中，Promise对象用于异步(asynchronous)计算。一个Promise对象代表着一个还未完成，但预期将会完成的操作。 
+ 
 ## 复习
+
 ### 同步模式
 程序的执行顺序和任务的排列顺序是一致的、同步的，后一个任务等待前一个任务结束后再执行。
+
 ### 异步模式
 程序的执行顺序与任务的排列顺序是不一致的、异步的，每一个任务都有一个或多个回调函数（callback），前一个任务结束后，不是执行后一个任务，而是执行回调函数，后一个任务则不用等前一个任务结束就执行。
 <!-- more -->
+
 # 语法
 `new Promise(executor)`  
 `new Promise(function(resolve, reject){....})`  
+
 ## 参数
+
 ### executor
 带有resolve、reject两个参数的函数对象。第一个参数用在处理执行成功的场景，第二个参数则用在处理执行失败的场景。一旦我们的操作完成即可调用这些函数。
 
 # 功能
+
 同步代码和异步代码解耦，程序流程更加清晰。
 
 # Demo
+
 参照MDN上关于Promise的[例子](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise#创建Promise)写了下面这个小demo。
+
 ## 常规回调函数写法
 	'use strict'
 	var count = 0;
@@ -50,6 +58,7 @@ Promise对象是CommonJS工作组提出的一种规范，目的是为异步编�
 	function callback(val){
 		log_cb.insertAdjacentHTML('beforeend','('+val+')Started (<small>Async code terminated</small>)<br/>');
 	}
+
 ## Promise对象写法
 	'use strict'
 	var count = 0;
