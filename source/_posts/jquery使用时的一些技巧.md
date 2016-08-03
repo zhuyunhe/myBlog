@@ -16,11 +16,19 @@ class选择器$('.className')、伪类选择器$(':hidden')、属性选择器$('
 
 # 父子元素关系
 最佳实践：$parent.hind('.child')  
-其他形式：  
+  
+其他形式
+  
+
+```
 $('.child',$parent)  
+
 $parent.children('.child');  
+  
 $('#parent > .child');  
-$('#parent .child');  
+  
+$('#parent .child'); 
+``` 
 
 # 避免过度使用jquery
 原生js方法永远比jquery快。  
@@ -62,14 +70,17 @@ $('#parent .child');
 1. 不要频繁使用.append()、insertBefore()、insertAfter()
 如果要插入多个元素，尽量合并后再插入，或者使用documentFragment
 
-2. 在一个元素上存储数据，不要写成下面这样：
-
-	var elem = $('#elem');
-	elem.data(key,value);
-
+2. 在一个元素上存储数据，不要写成下面这样：  
+	
+```
+var elem = $('#elem');
+elem.data(key,value);
+```
 而要写成  
 
 	var elem = $('#elem');
 	$.data(elem[0],key,value);
 
 elem.data()方法是定义在jQuery函数的prototype对象上面的，而$.data()方法是定义jQuery函数上面的，调用的时候不从复杂的jQuery对象上调用，所以速度快得多。
+
+
