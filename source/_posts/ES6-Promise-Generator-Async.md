@@ -264,7 +264,7 @@ function autoRun(run) {
 ```
 注意到run这个Generator函数，虽然里面的执行的是异步操作，但是在写法上已经和同步很像了，拿掉“yield”这个关键字后，就是一模一样的同步代码，但其实是非同步的。这就是Generator的精髓：用同步的语法来写异步的代码。虽然我们给出了：手动执行＝》自动执行＝》执行器执行，用三种不同的方法来执行Generator函数，在实际操作中，你完全不用自己写Generator函数的执行函数，可以用TJ大神的[co](https://github.com/tj/co)这个模块来做，co模块的和上面的第三种执行方法做的事也差不多。
 
-## async
+# async
 ES7中给我们提供了一个Generator函数的语法糖，就是async函数。async函数自带了执行器，不必用co这样的模块，并且语义上也比Generator更好，asynch和await比起星号和yield来说更加清楚。同时，async函数的适用性更广。但由于现在用的还不是很多（实验阶段），我也没有用过，下面是一段针对这个例子的简单的demo。
 
 ```
@@ -277,7 +277,7 @@ var asyncRun = async function () {
 
 ```
 
-## 参考
+# 参考
 [promise,generator,async与ES6](http://huli.logdown.com/posts/292655-javascript-promise-generator-async-es6)
 [阮一峰博客](https://github.com/ruanyf/articles/blob/master/2015/2015-05-12-es6-asynchronous-programming.md)
 
